@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Oauth Server</title>
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+    <div class="login">
+      <div class="container login_box">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="el-card always_shadow">
+              <div class="el-card_body">
+                <div class="mb-4 text-center">
+                  <%= image_tag "oauth2.png", width: "120px" %>
+                </div>
+                <div class="my-4 text-center">
+                  <h5>Quên mật khẩu</h5>
+                </div>
+                <h6>Nhập mật email và nhấn gửi email để khôi phục mật khẩu của bạn</h6>
+                <div class="login-form">
+                  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post, class: "el-form"}) do |f| %>
+                    <%= render "shared/error_messages", object: resource %>
+                    <div class="el-form-item">
+                      <div class="el-input">
+                        <label>Email <span class="text-danger">*</span></label>
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                      <button type="submit" class="btn btn-primary">Gủi email</button>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

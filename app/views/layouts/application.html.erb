@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Oauth Server</title>
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+    <div class="oauth">
+      <%= render "layouts/header" %>
+      <main>
+        <div class="row mr-0">
+          <%= render "layouts/left_menu" %>
+          <div class="col-md-10 main-content">
+            <%= render "shared/notice" %>
+            <%= yield %>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
